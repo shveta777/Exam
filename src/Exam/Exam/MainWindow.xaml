@@ -1,0 +1,125 @@
+﻿<Window x:Class="Exam.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Сортировка смартфонов"
+        Height="550"
+        Width="892"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text=""
+                   FontSize="26"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,20"/>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,15">
+
+            <TextBlock Text="Количество смартфонов:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,10,0"/>
+
+            <TextBox x:Name="CountTextBox"
+                     Width="100"
+                     Height="30"
+                     Margin="0,0,10,0"/>
+
+            <Button x:Name="SetCountButton"
+                    Content="Задать"
+                    Width="100"
+                    Height="30"
+                    Click="SetCountButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,15">
+
+            <TextBlock Text="Марка:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,5,0"/>
+
+            <TextBox x:Name="MarkaTextBox"
+                     Width="120"
+                     Height="30"
+                     Margin="0,0,10,0"/>
+
+            <TextBlock Text="Модель:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,5,0"/>
+
+            <TextBox x:Name="ModelTextBox"
+                     Width="80"
+                     Height="30"
+                     Margin="0,0,10,0"/>
+
+            <TextBlock Text="Цена"
+                       VerticalAlignment="Center"
+                       Margin="0,0,5,0"/>
+
+            <TextBox x:Name="PriceTextBox"
+                     Width="100"
+                     Height="30"
+                     Margin="0,0,10,0"/>
+
+            <Button x:Name="AddSmartphoneButton"
+                    Content="Добавить"
+                    Width="100"
+                    Height="30"
+                    Margin="0,0,10,0"
+                    Click="AddSmartphoneButton_Click"/>
+
+            <Button x:Name="ShowOriginalButton"
+                    Content="Исходный список"
+                    Width="130"
+                    Height="30"
+                    Margin="0,0,10,0"
+                    Click="ShowOriginalButton_Click"/>
+
+            <Button x:Name="ShowSortedButton"
+                    Content="Отсортировать"
+                    Width="130"
+                    Height="30"
+                    Click="ShowSortedButton_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="SmartphonesDataGrid"
+                  Grid.Row="3"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  Margin="0,0,0,15">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Марка"
+                                    Binding="{Binding Marka}"
+                                    Width="*"/>
+
+                <DataGridTextColumn Header="Модель"
+                                    Binding="{Binding Model}"
+                                    Width="*"/>
+
+                <DataGridTextColumn Header="Цена"
+                                    Binding="{Binding Price}"
+                                    Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock x:Name="MessageTextBlock"
+                   Grid.Row="4"
+                   Text="Введите количество смартфонов и нажмите кнопку Задать."
+                   FontSize="14"
+                   Foreground="DarkBlue"/>
+    </Grid>
+</Window>
